@@ -1,6 +1,3 @@
-"""
-this programs aims at learning how overpass api works. the complete version is on index.html
-"""
 import logging
 from datetime import datetime
 import os
@@ -10,11 +7,6 @@ logging.basicConfig(filename=f'log/listFacilitiesInArea{datetime.now().strftime(
 import urllib.parse
 import urllib.request
 import json
-
-# first, get list of parameters about facilities
-# then, use the parameters to get the coordinates of the facilities
-# the parameters are:
-# 
 
 # allAmenities='''
 # [out:json];
@@ -93,8 +85,3 @@ for dataType in dataTypes:
         queryOSM(queryFacilitiesSapporo, f'./response_{queryTag}_{dataType}.json')
         with open(f'./output_{queryTag}_{dataType}.txt', 'w',encoding='utf-8') as f:
             f.writelines('\n'.join(extractJANames(f'./response_{queryTag}_{dataType}.json')))
-
-# queryOSM(allAmenities, './response.json')
-
-# with open('./output.txt', 'w',encoding='utf-8') as f:
-#     f.writelines('\n'.join(extractJANames('./response.json')))
